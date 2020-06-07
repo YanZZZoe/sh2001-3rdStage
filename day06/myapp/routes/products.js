@@ -22,7 +22,8 @@ router.get('/', function (req, res, next) {
         aindex: 2,
         data,
         total: Math.ceil(len / limitnum),
-        role:req.cookies.role
+        role:req.cookies.role,
+        count
       });
     })
 
@@ -66,16 +67,16 @@ router.post('/addAction', (req, res, next) => {
 router.post('/updateAction', (req, res, next) => {
   // get req.query
   // post req.body
-  res.send(req.body);
-  // let { proid,proName, proBrand, brandLogo, proImg, price, detail, storage, sales } = req.body
-  // price *= 1; storage *= 1; sales *= 1;
-  // sql.update(Product, {proid},{$set:{
-  //   proName, proBrand, brandLogo, proImg, price, detail, storage, sales
-  // }
+  // res.send(req.body);
+  let { proid,proName, proBrand, brandLogo, proImg, price, detail, storage, sales } = req.body
+  price *= 1; storage *= 1; sales *= 1;
+  sql.update(Product, {proid},{$set:{
+    proName, proBrand, brandLogo, proImg, price, detail, storage, sales
+  }
 
-  // }).then(() => {
-  //   res.redirect("/products")
-  // })
+  }).then(() => {
+    res.redirect("/products")
+  })
 
 })
 

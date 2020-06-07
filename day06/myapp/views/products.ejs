@@ -90,8 +90,10 @@ desired effect
               <a href="/products/add">
                 <button type="button" class="btn btn-info btn-lg">添加产品</button>
               </a>
-              <a href="/products/sort?type=price&num=1"><button type="button" class="btn btn-info btn-xs">价格升序</button></a>
-              <a href="/products/sort?type=price&num=-1"><button type="button" class="btn btn-info btn-xs">价格降序</button></a>
+              <a href="/products/sort?type=price&num=1"><button type="button"
+                  class="btn btn-info btn-xs">价格升序</button></a>
+              <a href="/products/sort?type=price&num=-1"><button type="button"
+                  class="btn btn-info btn-xs">价格降序</button></a>
             </h3>
           </div>
           <!-- /.box-header -->
@@ -108,8 +110,8 @@ desired effect
                     <thead>
                       <tr role="row">
                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
-                        aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
-                        索引</th>
+                          aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                          索引</th>
                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                           aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                           产品名称</th>
@@ -158,10 +160,13 @@ desired effect
                     <ul class="pagination">
                       <li class="paginate_button previous disabled" id="example2_previous"><a href="#"
                           aria-controls="example2" data-dt-idx="0" tabindex="0">Previous</a></li>
-                      <% for(var i = 0; i < total; i++ ) { %>
-                      <li class="paginate_button"><a href="/products?count=<%- i %>" aria-controls="example2" data-dt-idx="1"
-                          tabindex="0"><%- i + 1 %></a></li>
+                      <% 
+                      for(var i = 0; i < total; i++ ) { %>
+
+                      <li class="paginate_button <%- count==i? 'active':''%>""><a href=" /products?count=<%- i %>"
+                        aria-controls="example2" data-dt-idx="1" tabindex="0"><%- i + 1 %></a></li>
                       <% } %>
+
                       <li class="paginate_button next" id="example2_next"><a href="#" aria-controls="example2"
                           data-dt-idx="7" tabindex="0">Next</a></li>
                     </ul>
@@ -172,11 +177,13 @@ desired effect
           </div>
           <!-- /.box-body -->
         </div>
-        <div id="exampleModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div id="exampleModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog"
+          aria-labelledby="mySmallModalLabel">
           <div class="modal-dialog " role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">删除确认框</h4>
               </div>
               <div class="modal-body">
@@ -219,10 +226,12 @@ desired effect
 </html>
 <script>
   $('#exampleModal').on('show.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var proid = button.data('whatever') ;
-  $("#dltCfm").on("click",()=>{
-    window.location.href='/products/delete?proid='+proid
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var proid = button.data('whatever');
+    $("#dltCfm").on("click", () => {
+      window.location.href = '/products/delete?proid=' + proid
+    })
   })
-})
+
+ 
 </script>
