@@ -1,0 +1,339 @@
+[
+  {
+    "type": "GET",
+    "url": "/api/banner",
+    "title": "获取轮播图数据接口",
+    "description": "<p>获取轮播图数据接口</p>",
+    "name": "banner",
+    "group": "banner",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n   code:\"200\",\n   message:\"获取轮播图数据\",\n   data:data\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/banner"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "api/banner.js",
+    "groupTitle": "banner"
+  },
+  {
+    "type": "GET",
+    "url": "/api/pro/detail",
+    "title": "获取产品详情接口",
+    "description": "<p>获取产品详情数据</p>",
+    "group": "pro",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "proid",
+            "description": "<p>查询产品的依据</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n   code:\"200\",\n   message:\"获取产品列表数据\",\n   data:data[0]\n}\n* {\n   code:\"10000\",\n   message:\"没有查询到该产品信息\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/pro/detail"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "api/pro.js",
+    "groupTitle": "pro",
+    "name": "GetApiProDetail"
+  },
+  {
+    "type": "GET",
+    "url": "/api/pro",
+    "title": "获取产品数据接口",
+    "description": "<p>获取产品数据接口</p>",
+    "name": "pro",
+    "group": "pro",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "limitnum",
+            "description": "<p>每页显示的个数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>页码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n   code:\"200\",\n   message:\"获取产品列表数据\",\n   data:data\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/pro"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "api/pro.js",
+    "groupTitle": "pro"
+  },
+  {
+    "type": "POST",
+    "url": "/api/users/login",
+    "title": "登录（以手机号或者账号选择其一登录即可）",
+    "description": "<p>登录</p>",
+    "group": "users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": "<p>账户信息</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>密码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "res.send({ code: '10003', message: '该账号或手机号还未注册' }) \nres.send({ code: '10004', message: '密码错误' }) \nres.send({ code: '200', message: '注册成功' })",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/users/login"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "api/users.js",
+    "groupTitle": "users",
+    "name": "PostApiUsersLogin"
+  },
+  {
+    "type": "POST",
+    "url": "/api/users/register",
+    "title": "注册",
+    "description": "<p>注册</p>",
+    "group": "users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "username",
+            "description": "<p>账户信息</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "tel",
+            "description": "<p>手机号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "password",
+            "description": "<p>密码</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "res.send({ code: '10001', message: '用户名已存在' }) \nres.send({ code: '10002', message: '手机号已被注册' }) \nres.send({ code: '200', message: '注册成功' })",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/users/register"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "api/users.js",
+    "groupTitle": "users",
+    "name": "PostApiUsersRegister"
+  },
+  {
+    "type": "POST",
+    "url": "/api/users/updateavatar",
+    "title": "更新头像",
+    "description": "<p>更新头像</p>",
+    "group": "users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userid",
+            "description": "<p>账户id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>头像的地址</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "res.send({\n     code: '10119',\n     message: 'token验证失败，请重新登录'\n   })\n res.send({\n     code: '200',\n     message: '上传头像成功'\n   })",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/users/updateavatar"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "api/users.js",
+    "groupTitle": "users",
+    "name": "PostApiUsersUpdateavatar"
+  },
+  {
+    "type": "POST",
+    "url": "/api/users/updateUserInfo",
+    "title": "修改个人信息",
+    "description": "<p>修改个人信息</p>",
+    "group": "users",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "token",
+            "description": "<p>token</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "userid",
+            "description": "<p>用户id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "nickname",
+            "description": "<p>昵称（非必须）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>性别（非必须）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>生日（非必须）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "email",
+            "description": "<p>邮箱（非必须）</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "res.send({\n     code: '10119',\n     message: 'token验证失败，请重新登录'\n   })\n res.send({\n     code: '200',\n     message: '修改信息成功'\n   })",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "/api/users/updateUserInfo"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "api/users.js",
+    "groupTitle": "users",
+    "name": "PostApiUsersUpdateuserinfo"
+  }
+]

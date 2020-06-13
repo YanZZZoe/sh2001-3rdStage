@@ -1,0 +1,67 @@
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
+      <!-- search form (Optional) -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">HEADER</li>
+        <% var arr = [
+        { title: '首页',icon: '', path: '/'}, 
+        { title: '轮播图管理',icon: '', path: '/banner'}, 
+        { title: '商品管理',icon: '', path: '/products'},
+        { title: '用户管理',icon: '', path: '/users'},
+        { title: '购物车管理',icon: '', path: '/cart'},
+        { title: '订单管理',icon: '', path: '/orders'},
+        { title: '活动管理',icon: '', path: '/activity'},
+        { title: '消息管理',icon: '', path: '/messages'}
+        ] %>
+        
+      <% for(var i = 0; i < arr.length; i++) { %>
+        <li class="<%- aindex==i? 'active':''%>">
+          <a href=" <%- arr[i].path %>"><i class="fa fa-link"></i> <span>
+          <%- arr[i].title %>
+        </span></a></li>
+      <% } %>
+
+      <% if(role==='2'){%>
+      <li class="<%- aindex === 8? 'active' :'' %>" >
+        <a  href='/admin'><i class="fa fa-link"></i>
+        <span>管理员管理</span>
+        </a>
+      </li>
+      <% } %>
+      </ul>
+
+      <% %>
+
+      
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
